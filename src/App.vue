@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header-box />
+    <main-container :discs="discsList" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
+import MainContainer from './components/MainContainer.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MainContainer,
+  }, data() {
+    return {
+      discsList: '[]',
+    }
+  },
+  mounted() {
+    axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((response) => {
+      this.discsList = response.data;
+    } )
   }
 }
 </script>
