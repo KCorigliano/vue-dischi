@@ -1,6 +1,12 @@
 <template>
-    <div class="container">
-        {{disc.title}}
+    <div class="disc-container">
+        <div>
+            <img :src="disc.poster" alt="">
+        </div>
+        <p>{{disc.title}}</p>
+        <p>{{disc.author}}</p>
+        <p>{{disc.year}}</p>
+        
     </div>
 </template>
 
@@ -13,10 +19,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
-    width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+.disc-container{
+    width: calc((100% / 5) - 30px);
+    background-color: #2e3a46;
+    padding: 15px;
+
+    img{
+        width: 100%;
+    }
 }
 </style>
