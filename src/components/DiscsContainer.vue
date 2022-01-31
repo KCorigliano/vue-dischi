@@ -1,14 +1,14 @@
 <template>
-    <div class="main">
-        <div class="container">
-
-        </div>
+    <div class="container">
+        {{disc.title}}
     </div>
 </template>
 
 <script>
 export default {
-    
+    props: {
+        disc: Object
+    }
 }
 </script>
 
