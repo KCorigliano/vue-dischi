@@ -25,6 +25,7 @@ export default {
 <style lang="scss" scoped>
 .main{
     background-color: #1e2d3b;
+    padding: 50px;
 
     .container{
         width: 1200px;
