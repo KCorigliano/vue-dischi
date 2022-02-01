@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="container">
-            <select v-model="genreList" @change="$emit('selectArray', genreList)">
+            <select v-model="genreList" @change="genreFilter">
                 <option value="">All genre</option>
                 <option value="Rock">Rock</option>
                 <option value="Pop">Pop</option>
@@ -9,7 +9,7 @@
                 <option value="Metal">Metal</option>
             </select>
 
-            <select v-model="authorList" @change="$emit('authorArray', authorList)">
+            <select v-model="authorList" @change="authorFilter">
                 <option value="">All author</option>
                 <option value="Bon Jovi">Bon Jovi</option>
                 <option value="Queen">Queen</option>
@@ -32,6 +32,16 @@ export default {
         return {
             genreList: '',
             authorList: '',
+        }
+    },
+    methods: {
+        genreFilter (){
+            this.authorList = '',
+            this.$emit('selectArray', this.genreList)
+        },
+        authorFilter (){
+            this.genreList = '',
+            this.$emit('authorArray', this.authorList)
         }
     },
 }
