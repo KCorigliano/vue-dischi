@@ -4,7 +4,8 @@
             <discs-container 
                 v-for="(disc, index) in discs" 
                 :disc="disc"
-                :key="index"/> 
+                :index="index"
+                :key="index"/>   
         </div>
     </div>
 </template>
@@ -16,9 +17,17 @@ export default {
     components: {
         DiscsContainer,
     }, 
+    data() {
+        return {
+            currentIndex: 0,
+        }
+    },
     props: {
         discs: Array
-    }
+    },
+    mounted() {
+        console.log('questo è il currentIndex: ' + this.currentIndex)
+    },
 }
 </script>
 

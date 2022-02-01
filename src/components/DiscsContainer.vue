@@ -13,8 +13,8 @@
 <script>
 export default {
     props: {
-        disc: Object
-    }
+        disc: Object,
+    },
 }
 </script>
 
