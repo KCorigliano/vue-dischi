@@ -22,6 +22,7 @@ export default {
 .disc-container{
     width: calc((100% / 5) - 30px);
     background-color: #2e3a46;
+    margin: 0 15px;
     padding: 20px;
     margin-bottom: 30px;
     text-align: center;

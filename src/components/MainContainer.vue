@@ -1,7 +1,6 @@
 <template>
     <div class="main">
         <div class="container">
-            <select-box />
             <discs-container 
                 v-for="(disc, index) in discs" 
                 :disc="disc"
@@ -13,12 +12,10 @@
 
 <script>
 import DiscsContainer from './DiscsContainer.vue'
-import SelectBox from './SelectBox.vue'
 
 export default {
     components: {
         DiscsContainer,
-        SelectBox
     }, 
     data() {
         return {
@@ -37,13 +34,12 @@ export default {
 <style lang="scss" scoped>
 .main{
     background-color: #1e2d3b;
-    padding: 50px;
+    padding: 20px;
 
     .container{
         width: 1200px;
         margin: 0 auto;
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
     }
 }

@@ -3,6 +3,7 @@
     <loader-box v-if="!loaded"/>
     <div v-else>
       <header-box />
+      <select-box @selectArray="filterArray"/>
       <main-container :discs="discsList" />
     </div>
   </div>
@@ -13,6 +14,7 @@ import axios from 'axios'
 import MainContainer from './components/MainContainer.vue'
 import HeaderBox from './components/HeaderBox'
 import LoaderBox from './components/LoaderBox.vue'
+import SelectBox from './components/SelectBox.vue'
 
 
 export default {
@@ -21,18 +23,26 @@ export default {
     MainContainer,
     HeaderBox,
     LoaderBox,
+    SelectBox,
   }, data() {
     return {
+      discsListSource: '[]',
       discsList: '[]',
       loaded: false,
     }
   },
   mounted() {
     axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((response) => {
+      this.discsListSource = response.data.response;
       this.discsList = response.data.response;
       this.loaded = true;
     } )
-  }
+  },
+  methods: {
+    filterArray (keyword) {
+      this.discsList = this.discsListSource.filter((element) => element.genre.includes(keyword))
+    }
+  },
 }
 </script>
 
