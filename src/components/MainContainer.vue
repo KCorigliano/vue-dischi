@@ -17,23 +17,14 @@ export default {
     components: {
         DiscsContainer,
     }, 
-    data() {
-        return {
-            currentIndex: 0,
-        }
-    },
     props: {
         discs: Array
-    },
-    mounted() {
-        console.log('questo è il currentIndex: ' + this.currentIndex)
     },
 }
 </script>
 
 <style lang="scss" scoped>
 .main{
-    background-color: #1e2d3b;
     padding: 20px;
 
     .container{

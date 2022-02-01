@@ -2,11 +2,25 @@
     <div class="container-fluid">
         <div class="container">
             <select v-model="genreList" @change="$emit('selectArray', genreList)">
-                <option value="">All</option>
+                <option value="">All genre</option>
                 <option value="Rock">Rock</option>
                 <option value="Pop">Pop</option>
                 <option value="Jazz">Jazz</option>
                 <option value="Metal">Metal</option>
+            </select>
+
+            <select v-model="authorList" @change="$emit('authorArray', authorList)">
+                <option value="">All author</option>
+                <option value="Bon Jovi">Bon Jovi</option>
+                <option value="Queen">Queen</option>
+                <option value="Sting">Sting</option>
+                <option value="Steve Gadd Band">Steve Gadd Band</option>
+                <option value="Iron Maiden">Iron Maiden</option>
+                <option value="Eric Clapton">Eric Clapton</option>
+                <option value="Deep Purple">Deep Purple</option>
+                <option value="Metallica">Metallica</option>
+                <option value="Dave Weckl">Dave Weckl</option>
+                <option value="Michael Jacjson">Michael Jackson</option>
             </select>
         </div>
     </div>
@@ -17,6 +31,7 @@ export default {
     data() {
         return {
             genreList: '',
+            authorList: '',
         }
     },
 }
@@ -25,7 +40,6 @@ export default {
 <style lang="scss" scoped>
 .container-fluid{
     width: 100%;
-    background-color: #1e2d3b;
 
     .container{
         width: 1200px;

@@ -3,7 +3,7 @@
     <loader-box v-if="!loaded"/>
     <div v-else>
       <header-box />
-      <select-box @selectArray="filterArray"/>
+      <select-box @selectArray="filterArray" @authorArray="authorArray" />
       <main-container :discs="discsList" />
     </div>
   </div>
@@ -40,7 +40,12 @@ export default {
   },
   methods: {
     filterArray (keyword) {
+      this.discsList = this.discsListSource;
       this.discsList = this.discsListSource.filter((element) => element.genre.includes(keyword))
+    },
+    authorArray (keyword) {
+      this.discsList = this.discsListSource;
+      this.discsList = this.discsListSource.filter((element) => element.author.includes(keyword))
     }
   },
 }
