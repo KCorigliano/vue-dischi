@@ -3,24 +3,24 @@
         <div class="container">
             <select v-model="genreList" @change="genreFilter">
                 <option value="">All genre</option>
-                <option value="Rock">Rock</option>
-                <option value="Pop">Pop</option>
-                <option value="Jazz">Jazz</option>
-                <option value="Metal">Metal</option>
+                <option 
+                    v-for="(genre, index) in autoGenreList" 
+                    :key="index" 
+                    :value="genre"
+                >
+                    {{genre}}
+                </option>
             </select>
 
             <select v-model="authorList" @change="authorFilter">
                 <option value="">All author</option>
-                <option value="Bon Jovi">Bon Jovi</option>
-                <option value="Queen">Queen</option>
-                <option value="Sting">Sting</option>
-                <option value="Steve Gadd Band">Steve Gadd Band</option>
-                <option value="Iron Maiden">Iron Maiden</option>
-                <option value="Eric Clapton">Eric Clapton</option>
-                <option value="Deep Purple">Deep Purple</option>
-                <option value="Metallica">Metallica</option>
-                <option value="Dave Weckl">Dave Weckl</option>
-                <option value="Michael Jacjson">Michael Jackson</option>
+                <option 
+                    v-for="(author, index) in autoAuthorList" 
+                    :key="index" 
+                    :value="author"
+                >
+                    {{author}}
+                </option>
             </select>
         </div>
     </div>
@@ -33,6 +33,10 @@ export default {
             genreList: '',
             authorList: '',
         }
+    }, 
+    props: {
+        autoGenreList : Array,
+        autoAuthorList : Array,
     },
     methods: {
         genreFilter (){

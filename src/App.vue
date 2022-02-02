@@ -3,7 +3,7 @@
     <loader-box v-if="!loaded"/>
     <div v-else>
       <header-box />
-      <select-box @selectArray="filterArray" @authorArray="authorArray" />
+      <select-box @selectArray="filterArray" @authorArray="authorArray" :autoGenreList="autoGenreList" :autoAuthorList="autoAuthorList"/>
       <main-container :discs="discsList" />
     </div>
   </div>
@@ -24,7 +24,30 @@ export default {
     HeaderBox,
     LoaderBox,
     SelectBox,
-  }, data() {
+  }, 
+  computed: {
+    autoGenreList(){
+      const list = [];
+      this.discsListSource.forEach(element => {
+        if (!list.includes(element.genre.toLowerCase())){
+          list.push(element.genre.toLowerCase())
+        }
+      });
+      console.log(list);
+      return list;
+    },
+    autoAuthorList(){
+      const list = [];
+      this.discsListSource.forEach(element => {
+        if (!list.includes(element.genre.toLowerCase())){
+          list.push(element.author.toLowerCase())
+        }
+      });
+      console.log(list);
+      return list;
+    }
+  },
+  data() {
     return {
       discsListSource: '[]',
       discsList: '[]',
@@ -41,11 +64,11 @@ export default {
   methods: {
     filterArray (keyword) {
       this.discsList = this.discsListSource;
-      this.discsList = this.discsListSource.filter((element) => element.genre.includes(keyword))
+      this.discsList = this.discsListSource.filter((element) => element.genre.toLowerCase().includes(keyword))
     },
     authorArray (keyword) {
       this.discsList = this.discsListSource;
-      this.discsList = this.discsListSource.filter((element) => element.author.includes(keyword))
+      this.discsList = this.discsListSource.filter((element) => element.author.toLowerCase().includes(keyword))
     }
   },
 }

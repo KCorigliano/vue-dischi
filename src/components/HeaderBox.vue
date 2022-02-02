@@ -12,14 +12,14 @@ export default {
 
 <style lang="scss" scoped>
 .navbar{
-    height: 75px;
+    height: 50px;
     width: 100%;
     background-color: #2e3a46;
     padding: 0 15px;
 
     img{
-        height: calc(100% - 30px);
-        margin: 15px 0;
+        height: calc(100% - 10px);
+        margin: 5px 0;
     }
 }
 </style>
